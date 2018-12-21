@@ -4,9 +4,31 @@
 	2.创建数据库: CREATE DATABASE databaseName;
 	3.查看创建的数据库详情: SHOW CREATE DATABASE databaseName(\G);
 	4.删除数据库: DROP DATABASE databaseName;
+	5.选择使用数据库: USE databaseName;
   二、数据库引擎
   	1.查看系统支持的引擎: SHOW ENGINES; // support表示该引擎是否能使用YES可以-NO不能使用-DEFAULT默认引擎
 	2.InnoDB事务性数据库首选，支持事物安全表，支持行锁和外键
 	3.MyISAM，基于ISAM的存储引擎，并对其进行扩展
 	4.MEMORY,该存储引擎将表中的数据存储到内存中，为查询和引用其他表数据提供快速访问
-	如何查看MySQL数据库的默认存储引擎->SHOW VARIABLE LIKE 'storage_engine';
+
+数据表的相关操作
+ 一、表的相关操作
+	1.创建表: CREATE TABLE tableName (字段名 字段类型 [约束条件] [默认值]);
+	2.表的创建信息查看: SHOW CREATE TABLE tableName|tableName\G;
+	3.字段约束:
+		①主键约束: 单一主键可以直接在字段名的后面用PRIMARY KEY，而多字段主键/单字段主键可以在最后用 CONSTRAINT <约束名> PRIMARY KEY [字段1, 字段2, ...]
+		②外检约束: [CONSTRAINT <外键名>] FOREIGN KEY 字段名1[字段名2...] REFERENCES <主表名> 主键列1 [, 主键列2]
+		③非空约束: 字段名 字段类型 NOT NULL
+		④唯一性约束: 字段名 字段类型 UNIQUE
+		⑤默认值约束: 字段名 字段类型 DEFAULT 默认值
+		⑥设值表的属性自动增加: 字段名 字段类型 AUTO_INCREMENT
+	4.查看数据表结构: DESC tableName;
+	5.修改数据表
+		①修改表名: ALTER TABLE tableName RENAME newTableName;
+		②修改字段数据类型: ALTER TABLE tableName MODIFY 字段名 字段类型 first|after 字段名;
+		③修改字段名: ALTER TABLE tableName CHANGE old字段名 new字段名 字段类型 first|after 字段名;
+		④添加字段: ALTER TABLE tableName ADD 字段名 字段类型 first|after 字段名;
+		⑤删除字段: ALTER TABLE tableName DROP 字段名;
+		⑥修改表的引擎: ALTER TABLE tableName ENGINE=引擎名;
+		⑦删除表的外键约束: ALTER TABLE tableName DROP FOREIGN KEY 外键约束名;
+		⑧删除数据表: DROP TABLE IF EXISTS tableName;
