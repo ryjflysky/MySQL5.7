@@ -31,4 +31,4 @@
 		⑤删除字段: ALTER TABLE tableName DROP 字段名;
 		⑥修改表的引擎: ALTER TABLE tableName ENGINE=引擎名;
 		⑦删除表的外键约束: ALTER TABLE tableName DROP FOREIGN KEY 外键约束名;
-		⑧删除数据表: DROP TABLE IF EXISTS tableName;
+		⑧删除数据表: DROP TABLE IF EXISTS tableName ;
