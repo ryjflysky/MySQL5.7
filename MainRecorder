@@ -32,3 +32,49 @@
 		⑥修改表的引擎: ALTER TABLE tableName ENGINE=引擎名;
 		⑦删除表的外键约束: ALTER TABLE tableName DROP FOREIGN KEY 外键约束名;
 		⑧删除数据表: DROP TABLE IF EXISTS tableName;
+
+数据类型和运算符
+一、数据类型介绍
+	MySQL有多种数据类型，主要有数值类型，日期/时间类型和字符串类型
+		数值数据类型：包括整数类型TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT 浮点数类型FLOAT和DOUBLE 定点小数类型DECIMAL
+		日期/时间类型：YEAR、TIME、DATE、DATETIME、TIMESTAMP
+		字符串类型：包括CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM、SET，字符串类型分为文本字符串和二进制字符串
+	1.整数类型，整数类型的属性字段可以添加约束AUTO_INCREMENT自增约束条件
+		类型名称                                            有符号                                                        无符号                                                      存储需求
+		TINYINT           -128~127                0~255                  1个字节
+		SMALLINT          -32768~32767            0-65535                2个字节
+		MEDIUMINT         -8388608~8388607        0-16777215             3个字节
+		INT               -2147483648~2147483647  0-4294967295           4个字节
+		BIGINT                                                           8个字节
+	2.浮点类型和定点数类型
+		类型名称                                        说明                            存储需求
+		FLOAT             单精度浮点数               4个字节
+		DOUBLE            双精度浮点数               8个字节
+		DECIMAL(M, D)     压缩的严格浮点数       M+2个字节
+	3.日期/时间类型
+		类型名称                         日期格式                                                  日期范围                                                                                                  存储需求
+		YEAR          YYYY                1901~2155                               1个字节
+		TIME          HH:MM:SS            -838:59:59~838:59:59                    3个字节
+		DATE          YYYY-MM-DD          1000-01-01~9999-12-03                   3个字节
+		DATETIME   YYYY-MM-DD HH:MM:SS    1000-01-01 00:00:00~9999-12-31 23:59:59 8个字节
+		TIMESTAMP  YYYY-MM-DD HH:MM:SS    1970-01-01 00:00:00~2038-01-19 03:14:07 4个字节
+	4.文本字符串类型
+		CHAR-固定长度字符串     VARCHAR-变长类型字符串，长度由存储的数据最长的为准
+		TEXT类型：TINYTEXT、TEXT、MEDIUMTEXT、LONGTEXT
+		ENUM：ENUM是一个字符串对象，其插入的值只能为创建时候枚举中的值，插入的时候只能选择其中的一个值进行插入     字段名  ENUM('值1', '值2', ...)
+		SET：SET类型的值在插入时候与ENUM不同的是可以选择多个值进行插入
+	5.二进制类型字符串
+		类型名称                                说明                                   存储需求
+		BIT(M)        位字段类型                               大约(m+7)/8个字节
+		BINARY(M)     固定长度二进制字符串            M个字节
+		VARBINARY(M)  可变长度二进制字符串            M+1个字节
+		TINYBLOB(M)   非常小的BLOB        L+1个字节，L<2^8
+		BLOB(M)       小BLOB            L+2个字节，L<2^16
+		MEDIUMBLOC(M) 中等大小的BLOB       L+3个字节，L<2^24
+		LONGBLOB      非常大的BLOB        L+4个字节，L<2^32
+	MySQL中有许多的数据类型，为了优化存储，提高数据库性能，在使用的时候应该尽量使用精确的数据类型。     
+二、常见运算符介绍
+	1.算数运算：算数运算用于各类数值的运算，包括加（+）、减（-）、乘（*）、除（/）、求余（%）
+	2.比较运算：比较运算符用户进行比较运算，包括大于（>）、小于（<）、等于（=）、大于等于（>=）、小于等于（<=）、不等于（!=）以及IN、BETWEEN AND、IS NULL、GREATEST、LEAST、LIKE、REGEXP
+	3.逻辑运算：逻辑运算的结果均为1（TRUE）、0（FALSE），这类型的运算有逻辑非(NOT/!)、逻辑与(AND/&&)、逻辑或(OR/||)、逻辑异或(XOR)
+	4.位操作运算符：位操作运算符与运算的操作数按二进制位进行运算，包括位与(&)、位或(|)、位非(~)、位异或(^)、左移(<<)、右移(>>)
