@@ -12,7 +12,7 @@
 	4.MEMORY,该存储引擎将表中的数据存储到内存中，为查询和引用其他表数据提供快速访问
 
 数据表的相关操作
- 一、表的相关操作
+  一、表的相关操作
 	1.创建表: CREATE TABLE tableName (字段名 字段类型 [约束条件] [默认值]);
 	2.表的创建信息查看: SHOW CREATE TABLE tableName|tableName\G;
 	3.字段约束:
@@ -34,7 +34,7 @@
 		⑧删除数据表: DROP TABLE IF EXISTS tableName;
 
 数据类型和运算符
-一、数据类型介绍
+ 一、数据类型介绍
 	MySQL有多种数据类型，主要有数值类型，日期/时间类型和字符串类型
 		数值数据类型：包括整数类型TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT 浮点数类型FLOAT和DOUBLE 定点小数类型DECIMAL
 		日期/时间类型：YEAR、TIME、DATE、DATETIME、TIMESTAMP
@@ -73,7 +73,7 @@
 		MEDIUMBLOC(M) 中等大小的BLOB       L+3个字节，L<2^24
 		LONGBLOB      非常大的BLOB        L+4个字节，L<2^32
 	MySQL中有许多的数据类型，为了优化存储，提高数据库性能，在使用的时候应该尽量使用精确的数据类型。     
-二、常见运算符介绍
+ 二、常见运算符介绍
 	1.算数运算：算数运算用于各类数值的运算，包括加（+）、减（-）、乘（*）、除（/）、求余（%）
 	2.比较运算：比较运算符用户进行比较运算，包括大于（>）、小于（<）、等于（=）、大于等于（>=）、小于等于（<=）、不等于（!=）以及IN、BETWEEN AND、IS NULL、GREATEST、LEAST、LIKE、REGEXP
 	3.逻辑运算：逻辑运算的结果均为1（TRUE）、0（FALSE），这类型的运算有逻辑非(NOT/!)、逻辑与(AND/&&)、逻辑或(OR/||)、逻辑异或(XOR)
