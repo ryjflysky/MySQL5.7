@@ -78,3 +78,19 @@
 	2.比较运算：比较运算符用户进行比较运算，包括大于（>）、小于（<）、等于（=）、大于等于（>=）、小于等于（<=）、不等于（!=）以及IN、BETWEEN AND、IS NULL、GREATEST、LEAST、LIKE、REGEXP
 	3.逻辑运算：逻辑运算的结果均为1（TRUE）、0（FALSE），这类型的运算有逻辑非(NOT/!)、逻辑与(AND/&&)、逻辑或(OR/||)、逻辑异或(XOR)
 	4.位操作运算符：位操作运算符与运算的操作数按二进制位进行运算，包括位与(&)、位或(|)、位非(~)、位异或(^)、左移(<<)、右移(>>)
+
+查询数据
+	SELECT *|<字段名称> FROM <表1>,<表2>...
+		WHERE  <表达式>
+		GROUP BY <group by definition>
+		HAVING <expression>
+		ORDER BY <order by definition>
+		LIMIT <offset>,<row count>
+ 一、单表查询
+ 	1.*：表示查询所有字段
+ 	2.查询指定记录，通过WHERE关键字，查询条件 =, <> !=, <, <=, >, >=, BETWEEN value1 AND value2, IN (value1,...)/ NOT IN (vlue1,...), LIKE 'Exp'
+ 	%-代表匹配任意字符串，_-代表匹配任意一个字符  
+ 	3.分组查询：group by 与 having 搭配一起使用。
+ 	4.连接查询，INNER JOIN内连接， LEFT JOIN左连接，RIGHT JOIN右连接
+ 	5.子查询，操作符有ANY,ALL,IN,EXISTS,子查询可以添加到SELECT,UPDATE,DELETE.  EXISTS的使用 WHERE EXISTS (子查询)，如果存在记录子查询值为true否则返回false;
+ 	5.合并查询结果，UNION
