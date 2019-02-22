@@ -1,0 +1,76 @@
+		Redis指令学习
+    
+     /*
+		 * 字符串的一些基本命令
+		 * 1.set key value 设置键值对
+		 * 2.get key 通过键获取值
+		 * 3.del key 通过键删除键值对
+		 * 4.strlen key 通过key求字符串长度
+		 * 5.getset key value 修改原来key的对应值，并返回
+		 * 6.getrange key start end 获取key对应的字符串，并返回start-end子字符串
+		 * 7.append key value 在key对应的字符串末尾加上value字符串
+		 * 
+		 * 字符串中对数字的操作
+		 * incr key 在原字段上面加1
+		 * incrby key increment 在原字段上加整数increment
+		 * decr key 在原字段上面减1
+		 * decrby key decrement 在原字段上减去decrement
+		 * incrbyfloat key increment 在原字段上加上浮点数
+		 */
+		
+		/*
+		 * 哈希结构命令
+		 * 1.hdel key field... 删除hash值为key的某些字段
+		 * 2.hexists key field 判断hash值为key的某个字段是否存在
+		 * 3.hgetall key 获取hash结构中的所有键值
+		 * 4.hincrby key field increment key对应的字段field加上increment
+		 * 5.hincrbyfloat key field increment key对应的字段浮点数field加上increment
+		 * 6.hkeys key 返回hash中所有的键
+		 * 7.hlen key 返回hash中键值对数
+		 * 8.hmget key field... 返回key中指定的列的值
+		 * 9.hmset key field.. value.. 设值key中字段的值为value
+		 * 10.hset key field value 在hash结构中设值键值对
+		 * 11.hsetnx key field value 当hash中不存在该字段时添加
+		 * 12.hvals key 获取hash中所有的值
+		 */
+	
+		/*
+		 * 链表的相关命令
+		 * 1.lpush key node... 把节点node依次加到链表的左边
+		 * 2.rpush key node... 把节点node依次加到链表的右边
+		 * 3.lindex key index 读取下标为index的节点(下标位置从0开始到Len-1)
+		 * 4.llen key 求链表的长度
+		 * 5.lpop key 链表左边删除第一个节点，并返回
+		 * 6.linsert key before|after pivot node 把指点插入到节点before|after
+		 * 7.lpushx key node 如果存在key的链表，则插入节点左边
+		 * 8.rpushx key node 如果存在key的链表，则插入节点右边
+		 * 9.lrange list start end 获取链表从start到end的节点值
+		 * 10.lrem key count value 从左到右删除链表key中值为value，删除count个，如果count=0，则全部删除
+		 * 11.lset key index node 设值链表key的下标为index的节点值为node
+		 * 12.ltrim key start stop 修建链表，只保留start到stop区间的节点
+		 * 
+		 * 链表的阻塞命令
+		 * 1.blpop key timeout 移除并获取链表第一个元素，如果有其他线程在操作，那么阻塞直到超时
+		 * 2.brpop key timeout 移除并获取最后一个元素，如果有其他线程在操作，那么阻塞直到超时
+		 * 3.rpoplpush key dest 移除key链表最后面一个元素，放到链表dest首部
+		 * 4.brpoplpush key dest timeout 移除key链表最后面一个元素，放到链表dest首部，阻塞直到超时
+		 */
+	
+		/*
+		 * 集合命令
+		 * 1.sadd key member... 给键为key的增加成员
+		 * 2.scard key 统计键为key的集合成员数
+		 * 3.sdiff key1 key2 找出两个集合的差集，如果只有一个集合，则列出这个集合的所有元素
+		 * 4.sdiffstore dest key1 key2 找出key1与key2集合的差集，并存储到集合dest中
+		 * 5.sinter key1 key2 列出两个集合的交集
+		 * 6.sinterstore dest key1 key2 列出两个集合key1和key2的交集，并存储到dest集合中
+		 * 7.sismember key member 判断member是否为key的的元素
+		 * 8.smembers key 返回key的所有元素
+		 * 9.smove src des member将member从集合src迁移到des中
+		 * 10.spop key 随机弹出集合中一个元素
+		 * 11.srandmember key count 随机返回集合中一个或者多个元素，count为限制返回总数，如果count为负数，则先求其绝对值
+		 * 12.srem key member ... 移除集合中的成员，可以是多个
+		 * 13.sunion key key1 key2 求两个集合的并集
+		 * 14.sunionstore des key1 key2 求集合key1和key2的并集并存入集合des中  
+		 *
+		 */
